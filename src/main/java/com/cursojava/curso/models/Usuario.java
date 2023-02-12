@@ -1,5 +1,11 @@
 package com.cursojava.curso.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table(name = "usuarios")
+@Entity
+
 public class Usuario {
     private Long id;
     private String nombre;
