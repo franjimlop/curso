@@ -1,7 +1,7 @@
 $(document).ready(function() {
 });
 
-async function RegistrarUsuario() {
+async function registrarUsuario() {
     let datos = {};
 
     datos.nombre = document.getElementById('txtNombre').value;
@@ -9,8 +9,8 @@ async function RegistrarUsuario() {
     datos.email = document.getElementById('txtEmail').value;
     datos.password = document.getElementById('txtPassword').value;
 
-    let RepetirPassword = document.getElementById('txtRepetirPassword').value;
-    if (RepetirPassword != datos.password) {
+    let repetirPassword = document.getElementById('txtRepetirPassword').value;
+    if (repetirPassword != datos.password) {
         alert('La contraseña no coincide');
         return;
     }
@@ -18,11 +18,10 @@ async function RegistrarUsuario() {
     const request = await fetch('api/usuarios', {
         method: 'POST',
         headers: {
-            'Accept': 'application/json',
-            'Context-Type': 'application/json'
-        }
-        body: JSON.stringify(datos)
-    });
-    const usuarios = await request.json();
-
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(datos)
+      });
+      location.reload();
 }

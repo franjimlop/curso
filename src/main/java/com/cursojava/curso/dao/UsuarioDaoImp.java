@@ -14,7 +14,6 @@ public class UsuarioDaoImp implements UsuarioDao {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    @Transactional
     public List<Usuario> getUsuarios() {
         String query = "FROM Usuario";
         return entityManager.createQuery(query).getResultList();
@@ -27,7 +26,8 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
-    public void registrar(Usuario usuario) {
+    public void registrarUsuario(Usuario usuario) {
         entityManager.merge(usuario);
     }
+
 }
