@@ -8,11 +8,15 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Table(name = "usuarios")
+//Indica que es una entidad JPA y se mapea a una tabla en la BB.DD. (usuarios)
 @Entity
 @ToString @EqualsAndHashCode
 public class Usuario {
+    //Indica que la variable id es la clave primaria
     @Id
+    //Genera automáticamente el valor de la clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //Los @Column se utilizan para mapear los campos de la tabla a los atributos de Usuario
     @Getter @Setter @Column(name = "id")
     private Long id;
     @Getter @Setter @Column(name = "nombre")

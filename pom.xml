@@ -20,40 +20,48 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<!--Proporciona las funcionalidades web de Spring Boot-->
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<!--El Tomcat tiene los servlets integrados-->
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<!--Proporciona dependencias para pruebas unitarias y de integración-->
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<!--Proporciona soporte para JPA y Hibernate-->
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
+			<!--Controlador JDBC para MySQL-->
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.19</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
+			<!--El lombok proporciona anotaciones para generar automáticamente getters, setters y constructores-->
 			<artifactId>lombok</artifactId>
 			<version>1.18.20</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.mkammerer</groupId>
+			<!--Algoritmo de hashing de contraseñas-->
 			<artifactId>argon2-jvm</artifactId>
 			<version>2.5</version>
 		</dependency>
+		<!--Soporte para JWT-->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-impl</artifactId>
@@ -75,6 +83,7 @@
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
+				<!--Maven (Empaqueta y ejecuta el proyeto entre otras cosas)-->
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
