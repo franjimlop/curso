@@ -10,7 +10,7 @@ async function iniciarSesion() {
     datos.password = document.getElementById('txtPassword').value;
 
     //Solicitud POST a la API de inicio de sesión utilizando la función fetch
-    const response = await fetch('api/login', {
+    const request = await fetch('api/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -19,10 +19,10 @@ async function iniciarSesion() {
         body:JSON.stringify(datos)
     });
     //Cuando la respuesta de la API se completa se almacena en la constante respuesta en forma de json
-    const respuesta = await response.json();
-        //Si en la respuesta no sale 'FAIL' almacena el token y el email en el localStorage
-        if (respuesta != 'FAIL') {
-            localStorage.token = respuesta;
+    const respuesta = await request.json();
+        //Si en la respuesta sale bien almacena el token y el email en el localStorage
+        if (respuesta.success == 'OK') {
+            localStorage.token = respuesta.token;
             localStorage.email = datos.email;
             window.location.href = 'usuarios.html';
         }

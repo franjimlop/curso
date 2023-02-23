@@ -1,4 +1,3 @@
-// Ejecuta tres funciones
 $(document).ready(function() {
     //Petición GET a la API para obtener la lista de usuarios y mostrarla en una tabla
     cargaUsuarios();
@@ -15,7 +14,7 @@ function actualizarEmailDelUsuario() {
 //Función que carga los usuarios
 async function cargaUsuarios() {
     //Obtenemos los usuarios
-    const response = await fetch('api/usuarios', {
+    const request = await fetch('api/usuarios', {
         method: 'GET',
         headers: getHeaders()
     });
@@ -35,16 +34,17 @@ async function cargaUsuarios() {
         //El usuarioHTML se agrega a listadoHTML
         listadoHTML += usuarioHTML;
     }
+    console.log(usuarios);
     //La lista de usuariosHTML se agrega y pinta en la tabla
     document.querySelector('#usuarios tbody').outerHTML = listadoHTML;
 }
 
-//Función para ahorrarse escribir los headers todo el rato
+//Función para ahorrarse escribir los headers
 function getHeaders() {
     return {
         'Accept': 'application/json',
         'Context-Type': 'application/json',
-        'Authorization': localStorage.token
+        'Authorization':localStorage.token
     };
 }
 /*Función que te pregunta si quieres eliminar el usuario y si lo confirmas

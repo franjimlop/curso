@@ -53,7 +53,7 @@ public class UsuarioDaoImp implements UsuarioDao {
         if (argon2.verify(passwordHashed, usuario.getPassword())) {
             return lista.get(0);
         }
-        return null;
+        else return null;
     }
 
 }
